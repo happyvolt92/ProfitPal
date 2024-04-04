@@ -4,33 +4,96 @@
 //
 //  Created by HappyVolt on 04/04/2024.
 //
-
 import XCTest
 @testable import ProfitPal
 
-final class ProfitPalTests: XCTestCase {
+class ProfitCalculatorTests: XCTestCase {
+
+    var profitCalculator: ProfitCalculating!
 
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        profitCalculator = ProfitCalculator()
     }
 
     override func tearDownWithError() throws {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        profitCalculator = nil
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testCalculateProfitWithNoMaterials() throws {
+        // Given
+        let materials: [Material] = []
+        let tax = 20.0
+        
+        // When
+        let (profit, totalPrice) = profitCalculator.calculateProfit(materialCosts: materials, tax: tax)
+        
+        // Then
+        XCTAssertEqual(profit, 0.0)
+        XCTAssertEqual(totalPrice, 0.0)
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
+    func testCalculateProfitWithMaterials() throws {
+        // Given
+        let materials = [Material(cost: 10.0), Material(cost: 20.0)]
+        let tax = 20.0
+        
+        // When
+        let (profit, totalPrice) = profitCalculator.calculateProfit(materialCosts: materials, tax: tax)
+        
+        // Then
+        XCTAssertEqual(profit, 30.0)
+        XCTAssertEqual(totalPrice, 36.0)
     }
 
+    func testCalculateProfitWithDifferentTaxRate() throws {
+        // Given
+        let materials = [Material(cost: 10.0), Material(cost: 20.0)]
+        let tax = 10.0
+        
+        // When
+        let (profit, totalPrice) = profitCalculator.calculateProfit(materialCosts: materials, tax: tax)
+        
+        // Then
+        XCTAssertEqual(profit, 30.0)
+        XCTAssertEqual(totalPrice, 33.0)
+    }
+
+    func testCalculateProfitWithZeroTax() throws {
+        // Given
+        let materials = [Material(cost: 10.0), Material(cost: 20.0)]
+        let tax = 0.0
+        
+        // When
+        let (profit, totalPrice) = profitCalculator.calculateProfit(materialCosts: materials, tax: tax)
+        
+        // Then
+        XCTAssertEqual(profit, 30.0)
+        XCTAssertEqual(totalPrice, 30.0)
+    }
+
+    func testCalculateProfitWithSingleMaterial() throws {
+        // Given
+        let materials = [Material(cost: 15.0)]
+        let tax = 20.0
+        
+        // When
+        let (profit, totalPrice) = profitCalculator.calculateProfit(materialCosts: materials, tax: tax)
+        
+        // Then
+        XCTAssertEqual(profit, 15.0)
+        XCTAssertEqual(totalPrice, 18.0)
+    }
+
+    func testCalculateProfitWithZeroMaterialCost() throws {
+        // Given
+        let materials = [Material(cost: 0.0)]
+        let tax = 20.0
+        
+        // When
+        let (profit, totalPrice) = profitCalculator.calculateProfit(materialCosts: materials, tax: tax)
+        
+        // Then
+        XCTAssertEqual(profit, 0.0)
+        XCTAssertEqual(totalPrice, 0.0)
+    }
 }
