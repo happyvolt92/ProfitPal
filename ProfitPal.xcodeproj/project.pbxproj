@@ -16,6 +16,8 @@
 		DFC864892BBEAD8000CF1F37 /* ProfitPalTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC864882BBEAD8000CF1F37 /* ProfitPalTests.swift */; };
 		DFC864932BBEAD8000CF1F37 /* ProfitPalUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC864922BBEAD8000CF1F37 /* ProfitPalUITests.swift */; };
 		DFC864952BBEAD8000CF1F37 /* ProfitPalUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC864942BBEAD8000CF1F37 /* ProfitPalUITestsLaunchTests.swift */; };
+		DFC864A32BBEAE2900CF1F37 /* ProfitCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC864A22BBEAE2900CF1F37 /* ProfitCalculator.swift */; };
+		DFC864A52BBEAE4500CF1F37 /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFC864A42BBEAE4500CF1F37 /* Material.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		DFC8648E2BBEAD8000CF1F37 /* ProfitPalUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ProfitPalUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFC864922BBEAD8000CF1F37 /* ProfitPalUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitPalUITests.swift; sourceTree = "<group>"; };
 		DFC864942BBEAD8000CF1F37 /* ProfitPalUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitPalUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		DFC864A22BBEAE2900CF1F37 /* ProfitCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfitCalculator.swift; sourceTree = "<group>"; };
+		DFC864A42BBEAE4500CF1F37 /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,12 +103,12 @@
 		DFC864702BBEAD7F00CF1F37 /* ProfitPal */ = {
 			isa = PBXGroup;
 			children = (
+				DFC864A72BBEAE6A00CF1F37 /* Controller */,
+				DFC864A62BBEAE5900CF1F37 /* Model */,
+				DFC864A12BBEADA100CF1F37 /* View */,
 				DFC864712BBEAD7F00CF1F37 /* AppDelegate.swift */,
 				DFC864732BBEAD7F00CF1F37 /* SceneDelegate.swift */,
-				DFC864752BBEAD7F00CF1F37 /* ViewController.swift */,
-				DFC864772BBEAD7F00CF1F37 /* Main.storyboard */,
 				DFC8647A2BBEAD8000CF1F37 /* Assets.xcassets */,
-				DFC8647C2BBEAD8000CF1F37 /* LaunchScreen.storyboard */,
 				DFC8647F2BBEAD8000CF1F37 /* Info.plist */,
 			);
 			path = ProfitPal;
@@ -125,6 +129,32 @@
 				DFC864942BBEAD8000CF1F37 /* ProfitPalUITestsLaunchTests.swift */,
 			);
 			path = ProfitPalUITests;
+			sourceTree = "<group>";
+		};
+		DFC864A12BBEADA100CF1F37 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DFC8647C2BBEAD8000CF1F37 /* LaunchScreen.storyboard */,
+				DFC864772BBEAD7F00CF1F37 /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		DFC864A62BBEAE5900CF1F37 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				DFC864A42BBEAE4500CF1F37 /* Material.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		DFC864A72BBEAE6A00CF1F37 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				DFC864752BBEAD7F00CF1F37 /* ViewController.swift */,
+				DFC864A22BBEAE2900CF1F37 /* ProfitCalculator.swift */,
+			);
+			name = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,9 +288,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DFC864A52BBEAE4500CF1F37 /* Material.swift in Sources */,
 				DFC864762BBEAD7F00CF1F37 /* ViewController.swift in Sources */,
 				DFC864722BBEAD7F00CF1F37 /* AppDelegate.swift in Sources */,
 				DFC864742BBEAD7F00CF1F37 /* SceneDelegate.swift in Sources */,
+				DFC864A32BBEAE2900CF1F37 /* ProfitCalculator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
